@@ -5,17 +5,15 @@
 // 1. Create a Date object
 var currentDate = new Date();
 // 2. Get the current month, day, and year
-console.log(currentDate.getMonth + 1);
-console.log(currentDate.getDay);
-console.log(currentDate.getFullYear);
+var month = String(currentDate.getMonth() + 1).padStart(2, "0");
+var day = String(currentDate.getDay() + 1).padStart(2, "0");
+var year = String(currentDate.getFullYear() + 1).padStart(4, "0");
 // 3. Adjust month if needed (JavaScript months are 0-based) DONE
 // 4. Add leading zeros to month/day if needed
 // 5. Create a string in the format: "Today is MM/DD/YYYY"
-var dateOutput = "Today is " + currentDate.getMonth + 1
-    + currentDate.getDay + " " + currentDate.getFullYear;
+var dateOutput = "Today is " + month + "/" + day + "/" + year;
 // 6. Display the result in the element with id="dateOutput"
-id=dateOutput;
-
+document.getElementById("dateOutput").textContent = dateOutput;
 
 // ==========================
 // Part 2: Number Conversion
@@ -31,9 +29,24 @@ var decimal = "19.75";
 var nonnum = "How is going";
 // TODO:
 // 2. For EACH variable:
+var values = [num1, num2, decimal, nonnum];
+var numberResults = "";
+for (var i = 0; i < values.length; i++) {
+    var original = values[i];
+    var converted = Number(original);
+    var isNaN = Number.isNaN(converted);
+    var isInt = Number.isInteger(converted);
+
+    numberConversionOutput += "original: " + original +
+        "converted: " + converted +
+        "isNaN: " + isNaN +
+        "isInt: " + isInt +
+        "<br>";
+}
+document.getElementById("numberConversionOutput").textContent = dateOutput;
+
 //
 // a. Convert the value using Number()
-var test1 = N
 // b. Check if it is NaN using Number.isNaN()
 // c. Check if it is an integer using Number.isInteger()
 // TODO:
@@ -55,6 +68,21 @@ var test1 = N
 // Part 3: Math & Formatting
 // ==========================
 // TODO:
+var mathResults = "";
+var num3 = 25;
+var num4 = 8.9;
+
+var additionResult = num3 + num4;
+var divisionResult = num4 / num3;
+var fixedDecimal = divisionResult.toFixed(2);
+
+mathOutput += "additionResult: " + additionResult +
+    "divisionResult: " + divisionResult +
+    "fixedDecimal: " + fixedDecimal +
+    "<br>";
+
+document.getElementById("mathOutput").textContent = mathOutput;
+
 // 1. Create at least 2-3 numeric variables
 //
 // 2. Perform calculations:
@@ -74,6 +102,23 @@ var test1 = N
 // Part 4: Conditionals
 // ==========================
 // TODO:
+var conditionMessage = "";
+if (Number.isNaN("abc")) {
+    conditionMessage += "Input is not a number <br>";
+}
+else {
+    conditionMessage += "Input is a number <br>";
+}
+
+if (Number.isInteger(4)) {
+    conditionMessage += "Input is a integer <br>";
+}
+else {
+    conditionMessage += "Input is not an integer <br>";
+}
+
+document.getElementById("conditionMessage").textContent = conditionMessage;
+
 // 1. Write at least TWO if/else statements
 //
 // Ideas:
